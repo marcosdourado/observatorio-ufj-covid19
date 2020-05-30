@@ -1,6 +1,5 @@
 from django.db import models
 
-from .chartbuilder import ChartBuilder
 from .chartbuilder_chapadao import ChartBuilder_Chapadao
 from .chartbuilder_jatai import ChartBuilder_Jatai
 from .chartbuilder_mineiros import ChartBuilder_Mineiros
@@ -73,6 +72,8 @@ class Graficos(models.Model):
             "querysets": self.__cardDict(7, 0, 0, 0),
             "google_charts": ChartBuilder_Chapadao.getValores(ChartBuilder_Chapadao)
         }
+
+        dir(ChartBuilder_Chapadao)
 
         return {**self.__commonValues(), **context}
 
